@@ -1,0 +1,38 @@
+﻿<Window x:Class="BinareCode_Minimax.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BinareCode_Minimax"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="232*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="startButton" Content="Start/Repeat" Click="Start_Click" Margin="21,141,684,36" Grid.Row="2" />
+        <Button x:Name="exitButton" Content="Exit" Click="Exit_Click" Margin="215,141,499,36" Grid.Row="2" />
+        <Button x:Name="moveButton" Content="Make a Move" Click="Move_Click" Margin="21,10,684,167" Grid.Row="2" IsEnabled="false"/>
+        
+        <RadioButton Margin="21,92,687,95" Grid.Row="2" Content="Player" Name="playerButton"/>
+        <RadioButton Margin="21,119,687,68" Grid.Row="2" Content="Computer" Name="computerButton"/>
+        
+        <Grid>
+            <TextBox x:Name="textBox" SelectionBrush="Transparent" Margin="45,55,270,10" Text="1001010011" FontSize="80" FontWeight="Bold" IsReadOnly="True" />
+        </Grid>
+        
+        <CheckBox x:Name="button1" IsChecked="False" IsEnabled="False" Margin="66,0,699,0" Grid.Row="1" />
+        <CheckBox x:Name="button2" IsChecked="False" IsEnabled="False" Margin="112,0,653,0" Grid.Row="1" />
+        <CheckBox x:Name="button3" IsChecked="False" IsEnabled="False" Margin="159,0,606,0" Grid.Row="1" />
+        <CheckBox x:Name="button4" IsChecked="False" IsEnabled="False" Margin="205,0,560,0" Grid.Row="1" />
+        <CheckBox x:Name="button5" IsChecked="False" IsEnabled="False" Margin="251,0,514,0" Grid.Row="1" />
+        <CheckBox x:Name="button6" IsChecked="False" IsEnabled="False" Margin="298,0,467,0" Grid.Row="1" />
+        <CheckBox x:Name="button7" IsChecked="False" IsEnabled="False" Margin="343,0,422,0" Grid.Row="1" />
+        <CheckBox x:Name="button8" IsChecked="False" IsEnabled="False" Margin="388,0,377,0" Grid.Row="1" />
+        <CheckBox x:Name="button9" IsChecked="False" IsEnabled="False" Margin="435,0,330,0" Grid.Row="1" />
+        <CheckBox x:Name="button10" IsChecked="False" IsEnabled="False" Margin="481,0,284,0" Grid.Row="1" />
+
+    </Grid>
+</Window>
