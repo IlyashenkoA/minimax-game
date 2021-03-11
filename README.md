@@ -1,6 +1,6 @@
 # BinareCode_Minimax
 
-Varu piedāvāt šādu spēli. Spēles sākumā gadījuma ceļā tiek saģenerēta skaitļu virkne, 
+Spēles sākumā gadījuma ceļā tiek saģenerēta skaitļu virkne, 
 kas sastāv no 0 un 1, piemēram  „101011” (vienīgais būtu jāpaņem garākā virkne 10-15 simboli).
 Spēlētāji izpilda gājienus pēc kārtas. Gājiens paredz jebkuru divu blakusstāvošo skaitļu aizvietošanu, 
 balstoties uz šādiem nosacījumiem: skaitļu pāris 00 dod 1, 01- 0,10-1,11-0. 
