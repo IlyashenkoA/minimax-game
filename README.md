@@ -1,9 +1,9 @@
-# BinareCode_Minimax
+# BinaryCode_Minimax
 
-Spēles sākumā gadījuma ceļā tiek saģenerēta skaitļu virkne, 
-kas sastāv no 0 un 1, piemēram  „101011” (vienīgais būtu jāpaņem garākā virkne 10-15 simboli).
-Spēlētāji izpilda gājienus pēc kārtas. Gājiens paredz jebkuru divu blakusstāvošo skaitļu aizvietošanu, 
-balstoties uz šādiem nosacījumiem: skaitļu pāris 00 dod 1, 01- 0,10-1,11-0. 
-Katrā gājienā var aizvietot tikai vienu skaitļu pāri. 
-Spēle beidzas, kad ir iegūti 2 skaitļi. Ja abi skaitļi ir vienādi (11 vai 00), tad uzvar spēlētājs, 
-kurš uzsāka spēli. Ja tie ir atšķirīgi (10 vai 01), tad uzvar otrais spēlētājs.
+At the start of the game, a random string of numbers is generated,
+consisting of 0 and 1, for example "101011" (only the longest string of 10-15 characters should be taken).
+Players perform moves in turn. The move involves replacing any two adjacent numbers,
+based on the following conditions: the pair of numbers 00 gives 1, 01 -> 0, 10 -> 1, 11 -> 0.
+Only one pair of numbers can be substituted per turn.
+The game ends when 2 numbers are obtained. If both numbers are the same (11 or 00), then the player wins
+who started the game. If they are different (10 or 01), then the second player wins.
