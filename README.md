@@ -1,4 +1,4 @@
-# BinaryCode_Minimax
+# Game with UI, based on MiniMax algorithm
 
 At the start of the game, a random string of numbers is generated,
 consisting of 0 and 1, for example "101011" (only the longest string of 10-15 characters should be taken).
