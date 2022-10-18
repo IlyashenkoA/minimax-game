@@ -8,7 +8,7 @@ class Move
     public int position;
 };
 
-namespace BinareCode_Minimax
+namespace MiniMaxGame
 {
     public partial class MainWindow : Window
     {
@@ -18,13 +18,14 @@ namespace BinareCode_Minimax
 
         }
 
-        static string player = "Human", opponent = "Computer";
+        private static readonly string player = "Human";
+        private static readonly string opponent = "Computer";
         static string hasStarted, numbers;
         string stringOfNumbers = null;
         char[] possibleCombinations;
 
         private void Start_Click(object sender, RoutedEventArgs e)
-        {            
+        {
 
             if (playerButton.IsChecked == true)
             {
@@ -43,12 +44,12 @@ namespace BinareCode_Minimax
                 startButton.IsEnabled = false;
                 moveButton.IsEnabled = true;
                 hasStarted = player;
-                MessageBox.Show("Game has started");
 
+                MessageBox.Show("Game has started");
             }
             else
             {
-                if(computerButton.IsChecked == true)
+                if (computerButton.IsChecked == true)
                 {
                     Random rand = new Random();
 
@@ -67,19 +68,21 @@ namespace BinareCode_Minimax
                     MessageBox.Show("Game has started");
 
                     computerStep();
+
                     for (int i = 0; i < 10; i++)
                     {
                         buttons(i).IsChecked = false;
                     }
+
                     moveButton.IsEnabled = true;
                 }
                 else
-                {                    
+                {
                     moveButton.IsEnabled = false;
-                    MessageBox.Show("Error");                                  
-                }                               
+                    MessageBox.Show("Error");
+                }
             }
-            
+
         }
 
         public char[] Combinations(TextBox textBox)
@@ -140,7 +143,7 @@ namespace BinareCode_Minimax
                     Combinations(textBox);
                     buttons(stringOfNumbers.Length).IsEnabled = false;
 
-                    if(isVictory() == true)
+                    if (isVictory() == true)
                     {
                         break;
                     }
@@ -148,7 +151,7 @@ namespace BinareCode_Minimax
                     MessageBox.Show("AI step");
                     computerStep();
 
-                    if(isVictory() == true)
+                    if (isVictory() == true)
                     {
                         break;
                     }
@@ -159,7 +162,7 @@ namespace BinareCode_Minimax
 
         public Boolean isMovesLeft(char[] stringOfNumbers)
         {
-            if(stringOfNumbers.Length > 2)
+            if (stringOfNumbers.Length > 2)
             {
                 return true;
             }
@@ -169,21 +172,21 @@ namespace BinareCode_Minimax
         public static int evaluate(char[] combinationsForVictory)
         {
             numbers = new string(combinationsForVictory);
-            if(hasStarted == player)
+            if (hasStarted == player)
             {
-                if(numbers == "11" || numbers == "00")
+                if (numbers == "11" || numbers == "00")
                 {
                     return -10;
                 }
-                else if(numbers == "10" || numbers == "01")
+                else if (numbers == "10" || numbers == "01")
                 {
                     return +10;
                 }
             }
 
-            if(hasStarted == opponent)
+            if (hasStarted == opponent)
             {
-                if(numbers == "10" || numbers == "01")
+                if (numbers == "10" || numbers == "01")
                 {
                     return -10;
                 }
@@ -211,49 +214,49 @@ namespace BinareCode_Minimax
                 return 0;
 
             if (isMax)
-                {
-                    int best = -1000;
+            {
+                int best = -1000;
 
-                    for(int i = 1; i < possibleCombinations.Length; i++)
+                for (int i = 1; i < possibleCombinations.Length; i++)
+                {
+                    numbers = Convert.ToString(possibleCombinations[i - 1]);
+                    numbers += Convert.ToString(possibleCombinations[i]);
+
+                    if (numbers == "10" || numbers == "00")
                     {
-                        numbers = Convert.ToString(possibleCombinations[i - 1]);
-                        numbers += Convert.ToString(possibleCombinations[i]);
-
-                        if (numbers == "10" || numbers == "00")
-                        {
-                            string x = new string(possibleCombinations);
+                        string x = new string(possibleCombinations);
                         tempArray = x.ToCharArray();
 
-                            possibleCombinations[i - 1] = '1';
+                        possibleCombinations[i - 1] = '1';
 
-                            string arr = new string(possibleCombinations);                            
-                            arr = arr.Remove(i,1);
-                            possibleCombinations = arr.ToCharArray();
-                            
-                            best = Math.Max(best, minimax(possibleCombinations, depth + 1, !isMax));
+                        string arr = new string(possibleCombinations);
+                        arr = arr.Remove(i, 1);
+                        possibleCombinations = arr.ToCharArray();
 
-                            possibleCombinations = tempArray; 
-                        }
+                        best = Math.Max(best, minimax(possibleCombinations, depth + 1, !isMax));
 
-                        else
-                        {
-                            string x = new string(possibleCombinations);
-                        tempArray = x.ToCharArray();
-                            possibleCombinations[i - 1] = '0';
-
-                            string arr = new string(possibleCombinations);
-                            arr = arr.Remove(i,1);
-                            possibleCombinations = arr.ToCharArray();
-
-                            best = Math.Min(best, minimax(possibleCombinations, depth + 1, !isMax));
-
-                            possibleCombinations = tempArray;
-                        }
+                        possibleCombinations = tempArray;
                     }
-                    return best;
+
+                    else
+                    {
+                        string x = new string(possibleCombinations);
+                        tempArray = x.ToCharArray();
+                        possibleCombinations[i - 1] = '0';
+
+                        string arr = new string(possibleCombinations);
+                        arr = arr.Remove(i, 1);
+                        possibleCombinations = arr.ToCharArray();
+
+                        best = Math.Min(best, minimax(possibleCombinations, depth + 1, !isMax));
+
+                        possibleCombinations = tempArray;
+                    }
                 }
-                else
-                {
+                return best;
+            }
+            else
+            {
                 int best = 1000;
 
                 for (int i = 1; i < possibleCombinations.Length; i++)
@@ -282,7 +285,7 @@ namespace BinareCode_Minimax
                         tempArray = x.ToCharArray();
                         possibleCombinations[i - 1] = '0';
 
-                        string arr = new string(possibleCombinations); 
+                        string arr = new string(possibleCombinations);
                         arr = arr.Remove(i, 1);
                         possibleCombinations = arr.ToCharArray();
 
@@ -336,7 +339,7 @@ namespace BinareCode_Minimax
                     possibleCombinations[i - 1] = '0';
 
                     string arr = new string(possibleCombinations);
-                    
+
                     arr = arr.Remove(i, 1);
                     possibleCombinations = arr.ToCharArray();
 

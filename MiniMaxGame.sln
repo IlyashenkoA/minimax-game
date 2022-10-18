@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinareCode_Minimax", "BinareCode_Minimax\BinareCode_Minimax.csproj", "{51907D9C-E3C8-414E-A177-0EEF817D2B8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minimax-game", "BinareCode_Minimax\minimax-game.csproj", "{51907D9C-E3C8-414E-A177-0EEF817D2B8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
